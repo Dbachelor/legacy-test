@@ -14,7 +14,7 @@ class InvoiceController extends Controller
      */
     public function index()
     {
-        //fetching all invoices with related columns
+
         $allInvoices = Invoice::where('id', '>', 0)->with(['Organization:id,name', 'Bank'])->get();
         $total = Invoice::sum('amount');
         if(count($allInvoices) > 0){
